@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="BaitLogic – Every Angler. Every Water. Free fishing community with live bite reports, depth maps, satellite maps and real-time conditions for Illinois and Missouri anglers.">
+<title>BaitLogic – Every Angler. Every Water.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Open Sans',sans-serif;background:#fff;color:#1a2a3a;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{text-decoration:none}
+ul{list-style:none}
+
+/* ═══════════ HEADER ═══════════ */
+.site-header{position:sticky;top:0;z-index:999;background:#fff;box-shadow:0 1px 10px rgba(184,134,11,.13)}
+.header-top{display:flex;align-items:center;justify-content:center;gap:18px;padding:14px 24px 10px;border-bottom:1px solid #f5e090}
+.h-rule{flex:1;max-width:130px;height:1.5px;background:linear-gradient(90deg,transparent,#c8a040)}
+.h-rule.r{background:linear-gradient(90deg,#c8a040,transparent)}
+.header-brand{font-family:'Playfair Display',serif;font-size:27px;font-weight:800;color:#b8860b;letter-spacing:4px;cursor:pointer}
+.site-nav{display:flex;justify-content:center;background:#fff}
+.site-nav a{font-family:'Montserrat',sans-serif;font-size:12px;font-weight:600;letter-spacing:1px;color:#1a3a6a;padding:11px 20px;display:block;border-top:2px solid transparent;transition:color .2s,border-color .2s}
+.site-nav a:hover{color:#b8860b;border-top-color:#c8a040}
+
+/* Mobile nav */
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;position:absolute;right:14px;top:14px}
+.hamburger span{display:block;width:24px;height:2px;background:#1a3a6a;border-radius:2px}
+.mobile-menu{display:none;position:fixed;inset:0;z-index:1000;background:rgba(255,255,255,.97);flex-direction:column;align-items:center;justify-content:center;gap:28px}
+.mobile-menu.open{display:flex}
+.mobile-close{position:absolute;top:20px;right:20px;font-size:28px;cursor:pointer;color:#1a3a6a}
+.mobile-menu a{font-family:'Montserrat',sans-serif;font-size:20px;font-weight:700;color:#1a3a6a;letter-spacing:2px;text-transform:uppercase}
+.mobile-menu a:hover{color:#b8860b}
+
+/* ═══════════ HERO ═══════════ */
+.hero{position:relative;min-height:560px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:56px 24px 90px;overflow:hidden}
+
+/* Warm sunrise sky — exact palette from mockup */
+.hero-bg{position:absolute;inset:0;z-index:0;
+background:linear-gradient(180deg,
+#fff5cc 0%,#ffe490 6%,#ffc85a 13%,#ffaa38 20%,
+#f88a28 26%,#fff6d8 34%,#f0e4b0 40%,
+#d5ecf8 47%,#b0d8f0 56%,#88bfe8 68%,
+#60a2d8 80%,#3880c0 100%)}
+
+/* Cloud streaks */
+.hero-clouds{position:absolute;inset:0;z-index:1;pointer-events:none;
+background:
+radial-gradient(ellipse 52% 16% at 18% 16%,rgba(255,255,235,.62) 0%,transparent 65%),
+radial-gradient(ellipse 44% 12% at 74% 10%,rgba(255,248,215,.5) 0%,transparent 65%),
+radial-gradient(ellipse 34% 10% at 50% 26%,rgba(255,235,195,.35) 0%,transparent 65%),
+radial-gradient(ellipse 26% 8% at 30% 8%,rgba(255,255,230,.42) 0%,transparent 65%),
+radial-gradient(ellipse 22% 7% at 84% 22%,rgba(255,232,185,.3) 0%,transparent 65%)}
+
+/* Tree silhouettes */
+.hero-trees{position:absolute;bottom:128px;left:0;right:0;height:115px;z-index:2;pointer-events:none;
+background:
+radial-gradient(ellipse 46px 115px at  2% 100%,#1b2f1e 52%,transparent 53%),
+radial-gradient(ellipse 60px  98px at  6% 100%,#192c1c 52%,transparent 53%),
+radial-gradient(ellipse 42px  82px at 11% 100%,#1d3220 52%,transparent 53%),
+radial-gradient(ellipse 36px  70px at 15% 100%,#1b2f1e 52%,transparent 53%),
+radial-gradient(ellipse 42px 105px at 86% 100%,#1b2f1e 52%,transparent 53%),
+radial-gradient(ellipse 58px  92px at 91% 100%,#192c1c 52%,transparent 53%),
+radial-gradient(ellipse 48px  78px at 96% 100%,#1d3220 52%,transparent 53%),
+radial-gradient(ellipse 34px  64px at 99% 100%,#1b2f1e 52%,transparent 53%)}
+
+/* Water surface */
+.hero-water{position:absolute;bottom:0;left:0;right:0;height:135px;z-index:2;pointer-events:none;
+background:linear-gradient(180deg,rgba(176,216,240,.65) 0%,rgba(112,176,224,.78) 30%,rgba(56,128,192,.9) 62%,rgba(18,68,136,.97) 100%)}
+
+/* Water shimmer */
+.hero-shimmer{position:absolute;bottom:58px;left:16%;right:16%;height:1.5px;z-index:3;pointer-events:none;
+background:rgba(255,218,96,.42);border-radius:50%;
+box-shadow:0 16px 0 rgba(255,218,96,.2),0 30px 0 rgba(255,218,96,.1)}
+
+.hero-content{position:relative;z-index:5;display:flex;flex-direction:column;align-items:center;gap:20px;animation:fadeUp .9s ease both}
+
+/* ── Logo circle ── */
+.logo-wrap{position:relative;display:inline-block;margin-bottom:6px}
+
+.logo-circle{width:185px;height:185px;border-radius:50%;position:relative;overflow:hidden;
+border:5px solid #c8a040;
+box-shadow:0 0 0 3px rgba(255,198,76,.28),0 0 28px rgba(255,158,36,.48),0 14px 52px rgba(0,0,0,.32)}
+
+/* Inside the circle — warm lake */
+.lc-bg{position:absolute;inset:0;
+background:linear-gradient(180deg,#ffe490 0%,#ffb838 18%,#f88a28 30%,#fff2b8 40%,#88c6e8 52%,#4896ce 70%,#1a5698 100%)}
+
+.lc-sun{position:absolute;top:18px;left:50%;transform:translateX(-50%);
+width:50px;height:50px;border-radius:50%;
+background:radial-gradient(circle,#fff8a0 0%,#ffe838 35%,#ffb828 58%,rgba(255,148,0,0) 78%);
+filter:blur(2px);opacity:.88}
+
+.lc-water{position:absolute;bottom:0;left:0;right:0;height:72px;
+background:linear-gradient(180deg,rgba(72,150,206,.62) 0%,rgba(26,86,152,.94) 100%)}
+
+.lc-ripple{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);
+width:104px;height:20px;border-radius:50%;
+border:1.5px solid rgba(255,196,72,.62);
+box-shadow:0 9px 0 rgba(255,196,72,.3),0 18px 0 rgba(255,196,72,.14)}
+
+.lc-hook{position:absolute;top:50%;left:50%;transform:translate(-50%,-45%);
+font-size:72px;z-index:2;color:#080808;
+filter:drop-shadow(0 0 7px rgba(0,0,0,.75)) drop-shadow(0 2px 3px rgba(0,0,0,.55))}
+
+/* Speed lines */
+.speed-lines{position:absolute;right:-54px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:7px}
+.sp{height:4px;border-radius:3px;background:linear-gradient(90deg,#c8a040,rgba(200,160,64,0));animation:sp 1.8s ease-in-out infinite}
+.sp:nth-child(1){width:52px}
+.sp:nth-child(2){width:36px;animation-delay:.2s}
+.sp:nth-child(3){width:21px;animation-delay:.4s}
+.sp-dot{position:absolute;right:-60px;top:50%;transform:translateY(-50%) translateX(8px);
+width:9px;height:9px;border-radius:50%;background:#c8a040;
+box-shadow:0 0 8px rgba(200,160,64,.8);animation:spd 1.8s ease-in-out infinite}
+
+@keyframes sp{0%,100%{opacity:.9}50%{opacity:.35}}
+@keyframes spd{0%,100%{opacity:1;transform:translateY(-50%) translateX(8px) scale(1)}50%{opacity:.25;transform:translateY(-50%) translateX(8px) scale(.55)}}
+
+/* Hero text */
+.hero-h1{font-family:'Playfair Display',serif;font-size:clamp(26px,5vw,46px);font-weight:800;color:#7a4a0e;
+text-shadow:0 1px 0 rgba(255,255,255,.92),0 2px 14px rgba(255,196,72,.48);line-height:1.15}
+.hero-sub{font-family:'Montserrat',sans-serif;font-size:18px;font-weight:700;color:#1a3a6a;letter-spacing:1px;
+text-shadow:0 1px 6px rgba(255,255,255,.8)}
+.hero-btn{display:inline-block;background:linear-gradient(135deg,#e88818,#cf5e0e);color:#fff;
+font-family:'Montserrat',sans-serif;font-size:16px;font-weight:700;letter-spacing:1.5px;
+padding:15px 60px;border-radius:50px;
+box-shadow:0 4px 20px rgba(218,108,18,.5),inset 0 1px 0 rgba(255,255,255,.2);
+transition:transform .2s,box-shadow .2s;margin-top:8px}
+.hero-btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(218,108,18,.65)}
+
+/* ═══════════ FEATURES BAR ═══════════ */
+.features-bar{background:#fff;padding:38px 40px;display:flex;justify-content:center;gap:0;
+border-bottom:1px solid #f0e8cc}
+
+.feat{flex:1;max-width:270px;display:flex;flex-direction:column;align-items:center;text-align:center;
+gap:10px;padding:0 24px;position:relative}
+.feat+.feat::before{content:'';position:absolute;left:0;top:12%;bottom:12%;width:1px;
+background:linear-gradient(180deg,transparent,#d0bc88,transparent)}
+
+.feat-icon{width:62px;height:62px;border-radius:50%;
+background:linear-gradient(135deg,rgba(72,158,196,.14),rgba(40,158,140,.12));
+border:1.5px solid rgba(72,158,196,.28);
+display:flex;align-items:center;justify-content:center;font-size:27px;
+transition:transform .25s}
+.feat:hover .feat-icon{transform:scale(1.1)}
+
+.feat-title{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:800;color:#1a3a6a}
+.feat-sub{font-size:12px;color:#6a8aaa;line-height:1.55}
+
+/* ═══════════ DISCOVER ═══════════ */
+.discover{padding:62px 40px 72px;text-align:center;
+background:linear-gradient(180deg,#fef8ec 0%,#fdf0d6 38%,#fce8c4 68%,#fbdeb0 100%);
+position:relative;overflow:hidden}
+.discover::after{content:'';position:absolute;bottom:0;left:0;right:0;height:70px;
+background:linear-gradient(180deg,transparent,rgba(255,196,72,.12))}
+
+.sec-title{font-family:'Playfair Display',serif;font-size:clamp(22px,4vw,34px);font-weight:800;color:#b8760a;margin-bottom:6px;position:relative;z-index:1}
+.sec-tag{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:600;color:#2a7aaa;
+letter-spacing:1px;margin-bottom:38px;position:relative;z-index:1}
+
+.cards-row{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;max-width:980px;margin:0 auto;position:relative;z-index:1}
+
+.l-card{flex:1;min-width:242px;max-width:305px;border-radius:10px;overflow:hidden;
+box-shadow:0 4px 20px rgba(0,0,0,.14);transition:transform .25s,box-shadow .25s;cursor:pointer}
+.l-card:hover{transform:translateY(-6px);box-shadow:0 12px 36px rgba(0,0,0,.22)}
+
+.c-photo{height:192px;position:relative;overflow:hidden}
+
+/* Card 1 — fishing boats sunset */
+.cp1{background:linear-gradient(180deg,#ff9830 0%,#e86e18 18%,#be4c16 32%,#e8c658 44%,#7eb6d6 58%,#3676b6 78%,#184886 100%)}
+.cp1::before{content:'';position:absolute;bottom:22px;left:26%;width:20%;height:30px;background:#0c1c34;clip-path:polygon(6% 0%,94% 0%,100% 100%,0% 100%);border-radius:0 0 4px 4px}
+.cp1::after{content:'';position:absolute;bottom:22px;left:56%;width:15%;height:22px;background:#0c1c34;clip-path:polygon(6% 0%,94% 0%,100% 100%,0% 100%);border-radius:0 0 4px 4px}
+
+/* Card 2 — structure/waterfall */
+.cp2{background:linear-gradient(180deg,#5eb6de 0%,#2e9ece 20%,#168abc 40%,#066ea6 60%,#04588e 80%,#023e6a 100%)}
+.cp2::before{content:'';position:absolute;top:18px;left:34%;width:32%;height:115px;
+background:linear-gradient(180deg,rgba(255,255,255,.55),rgba(196,238,255,.25));border-radius:5px;filter:blur(3px)}
+
+/* Card 3 — golden sunset */
+.cp3{background:linear-gradient(180deg,#ffd058 0%,#ffae28 16%,#f88e18 28%,#ffeed8 40%,#9ecae6 56%,#4e96ce 78%,#186098 100%)}
+.cp3::before{content:'';position:absolute;bottom:22px;left:38%;width:22%;height:20px;background:#0c1c34;clip-path:polygon(6% 0%,94% 0%,100% 100%,0% 100%);border-radius:0 0 4px 4px}
+
+/* Shared card elements */
+.c-sun{position:absolute;top:14px;left:50%;transform:translateX(-50%);
+width:42px;height:42px;border-radius:50%;
+background:radial-gradient(circle,#fff8a0 0%,#ffe838 38%,rgba(255,200,0,0) 75%);filter:blur(2px)}
+.c-trees{position:absolute;bottom:30px;left:0;right:0;height:58px;pointer-events:none;
+background:
+radial-gradient(ellipse 28px 58px at  5% 100%,#142010 52%,transparent 53%),
+radial-gradient(ellipse 36px 50px at 11% 100%,#182818 52%,transparent 53%),
+radial-gradient(ellipse 26px 44px at 16% 100%,#142010 52%,transparent 53%),
+radial-gradient(ellipse 26px 52px at 85% 100%,#142010 52%,transparent 53%),
+radial-gradient(ellipse 34px 48px at 91% 100%,#182818 52%,transparent 53%),
+radial-gradient(ellipse 24px 42px at 96% 100%,#142010 52%,transparent 53%)}
+.c-water{position:absolute;bottom:0;left:0;right:0;height:35px;
+background:linear-gradient(180deg,rgba(58,128,198,.5),rgba(18,68,138,.9))}
+
+.c-label{background:linear-gradient(90deg,#1a3a6a,#0c2242);color:#fff;
+font-family:'Montserrat',sans-serif;font-size:14px;font-weight:700;letter-spacing:1px;
+padding:13px 18px;display:flex;align-items:center;gap:8px}
+
+/* ═══════════ FOOTER LOGO AREA ═══════════ */
+.footer-logo-area{position:relative;padding:58px 24px 78px;text-align:center;overflow:hidden}
+.footer-logo-area::before{content:'';position:absolute;inset:0;z-index:0;
+background:linear-gradient(180deg,#fbdfac 0%,#f8d49a 28%,#f8e6b8 50%,#e6f2fa 72%,#c6e2f2 100%)}
+
+/* Wave arch top */
+.footer-logo-area::after{content:'';position:absolute;top:-1px;left:0;right:0;height:56px;z-index:1;
+background:#fbdeb0;clip-path:ellipse(58% 100% at 50% 0%)}
+
+.flc-wrap{position:relative;z-index:2;display:inline-block}
+.flc{width:155px;height:155px;border-radius:50%;position:relative;overflow:hidden;
+border:4px solid #c8a040;box-shadow:0 0 0 2.5px rgba(255,196,72,.28),0 8px 32px rgba(0,0,0,.24);margin:0 auto}
+.flc-bg{position:absolute;inset:0;
+background:linear-gradient(180deg,#ffe490 0%,#ffb838 18%,#f88a28 30%,#fff2b8 40%,#88c6e8 52%,#4896ce 70%,#1a5698 100%)}
+.flc-sun{position:absolute;top:14px;left:50%;transform:translateX(-50%);
+width:38px;height:38px;border-radius:50%;
+background:radial-gradient(circle,#fff8a0 0%,#ffe838 38%,rgba(255,200,0,0) 78%);filter:blur(2px);opacity:.9}
+.flc-water{position:absolute;bottom:0;left:0;right:0;height:58px;
+background:linear-gradient(180deg,rgba(72,150,206,.62),rgba(26,86,152,.94))}
+.flc-hook{position:absolute;top:50%;left:50%;transform:translate(-50%,-44%);
+font-size:60px;z-index:2;color:#080808;
+filter:drop-shadow(0 0 6px rgba(0,0,0,.72)) drop-shadow(0 2px 2px rgba(0,0,0,.5))}
+.flc-lines{position:absolute;right:-46px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:6px}
+.fl{height:3.5px;border-radius:3px;background:linear-gradient(90deg,#c8a040,rgba(200,160,64,0));animation:sp 1.8s ease-in-out infinite}
+.fl:nth-child(1){width:44px}
+.fl:nth-child(2){width:30px;animation-delay:.2s}
+.fl:nth-child(3){width:17px;animation-delay:.4s}
+
+/* ═══════════ FOOTER ═══════════ */
+.site-footer{background:#fff;border-top:1.5px solid #f0e0ae;padding:28px 24px 20px;text-align:center}
+
+.foot-nav{display:flex;justify-content:center;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:20px}
+.foot-nav a{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:600;color:#1a3a6a;transition:color .2s;padding:2px 4px}
+.foot-nav a:hover{color:#b8860b}
+.foot-nav .dot{color:#c8a040;font-size:10px;line-height:1}
+.foot-nav a.soon{color:#aaa;font-style:italic}
+
+.foot-social{display:flex;justify-content:center;gap:12px;margin-bottom:20px}
+.soc{width:40px;height:40px;border-radius:50%;
+background:linear-gradient(135deg,#e88818,#c05e0e);
+display:flex;align-items:center;justify-content:center;color:#fff;
+font-family:'Montserrat',sans-serif;font-size:15px;font-weight:800;
+cursor:pointer;transition:transform .2s,box-shadow .2s;
+box-shadow:0 2px 8px rgba(218,108,18,.35)}
+.soc:hover{transform:scale(1.13);box-shadow:0 4px 14px rgba(218,108,18,.52)}
+
+.foot-copy{font-size:11px;color:#8899aa;letter-spacing:.4px}
+
+/* ═══════════ TOAST ═══════════ */
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(16px);
+background:#1a3a6a;color:#fff;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:600;
+padding:12px 26px;border-radius:50px;box-shadow:0 4px 20px rgba(0,0,0,.24);
+opacity:0;pointer-events:none;transition:opacity .3s,transform .3s;z-index:9999;white-space:nowrap}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* ═══════════ SCROLL REVEAL ═══════════ */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* ═══════════ ANIMATIONS ═══════════ */
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+
+/* ═══════════ RESPONSIVE ═══════════ */
+@media(max-width:768px){
+  .site-nav{display:none}
+  .hamburger{display:flex}
+  .header-top{padding:12px 56px 10px 20px}
+  .header-brand{font-size:22px}
+  .hero{min-height:490px;padding:46px 16px 72px}
+  .logo-circle{width:155px;height:155px}
+  .lc-hook{font-size:58px}
+  .hero-h1{font-size:24px}
+  .hero-sub{font-size:15px}
+  .hero-btn{padding:14px 46px;font-size:14px}
+  .speed-lines,.sp-dot{display:none}
+  .features-bar{flex-direction:column;align-items:center;gap:28px;padding:32px 24px}
+  .feat+.feat::before{display:none}
+  .discover{padding:46px 20px 58px}
+  .cards-row{flex-direction:column;align-items:center}
+  .l-card{max-width:100%}
+  .footer-logo-area{padding:46px 20px 62px}
+  .flc-lines{display:none}
+  .foot-nav .dot{display:none}
+}
+@media(max-width:480px){
+  .h-rule{max-width:50px}
+  .hero-btn{display:block;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mMenu">
+  <span class="mobile-close" onclick="closeMM()">✕</span>
+  <a href="#features" onclick="closeMM()">Depth Maps</a>
+  <a href="#discover" onclick="closeMM()">Community Work</a>
+  <a href="#events"   onclick="closeMM()">Events</a>
+  <a href="#resources"onclick="closeMM()">Resources</a>
+  <a href="#join"     onclick="closeMM()">Join</a>
+  <a href="#login"    onclick="closeMM()">Login</a>
+</div>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="hamburger" onclick="openMM()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </div>
+  <div class="header-top">
+    <div class="h-rule"></div>
+    <div class="header-brand" onclick="scrollTo({top:0,behavior:'smooth'})">BaitLogic</div>
+    <div class="h-rule r"></div>
+  </div>
+  <nav class="site-nav" aria-label="Primary">
+    <a href="#features">Depth Maps</a>
+    <a href="#discover">Community Work</a>
+    <a href="#events">Events</a>
+    <a href="#resources">Resources</a>
+    <a href="#join">Join</a>
+    <a href="#login">Login</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" aria-label="Hero">
+  <div class="hero-bg"></div>
+  <div class="hero-clouds"></div>
+  <div class="hero-trees"></div>
+  <div class="hero-water"></div>
+  <div class="hero-shimmer"></div>
+
+  <div class="hero-content">
+    <div class="logo-wrap">
+      <div class="logo-circle">
+        <div class="lc-bg"></div>
+        <div class="lc-sun"></div>
+        <div class="lc-water"></div>
+        <div class="lc-ripple"></div>
+        <div class="lc-hook">🪝</div>
+      </div>
+      <div class="speed-lines">
+        <div class="sp"></div><div class="sp"></div><div class="sp"></div>
+      </div>
+      <div class="sp-dot"></div>
+    </div>
+
+    <h1 class="hero-h1">Every Angler. Every Water.</h1>
+    <p class="hero-sub">Where Water Meets Wisdom</p>
+    <a href="#join" class="hero-btn">Join Now</a>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features-bar reveal" id="features" aria-label="Features">
+  <div class="feat">
+    <div class="feat-icon">🗺️</div>
+    <div class="feat-title">Advanced Depth Maps</div>
+    <div class="feat-sub">Pinpoint Structure Details</div>
+  </div>
+  <div class="feat">
+    <div class="feat-icon">📍</div>
+    <div class="feat-title">Exclusive Hotspots</div>
+    <div class="feat-sub">Secret Fishing Locations</div>
+  </div>
+  <div class="feat">
+    <div class="feat-icon">👥</div>
+    <div class="feat-title">Community Connection</div>
+    <div class="feat-sub">Engage &amp; Share Together</div>
+  </div>
+</section>
+
+<!-- DISCOVER -->
+<section class="discover reveal" id="discover" aria-label="Discover">
+  <h2 class="sec-title">Discover Your Waters</h2>
+  <p class="sec-tag">Local Insights &nbsp;·&nbsp; Smart Fishing &nbsp;·&nbsp; Shared Knowledge</p>
+
+  <div class="cards-row">
+    <article class="l-card" onclick="showToast('🎣 Fishing Reports — coming soon!')">
+      <div class="c-photo cp1">
+        <div class="c-sun"></div>
+        <div class="c-trees"></div>
+        <div class="c-water"></div>
+      </div>
+      <div class="c-label">🎣&nbsp; Fishing Reports</div>
+    </article>
+
+    <article class="l-card" onclick="showToast('🗺️ Structure Maps — coming soon!')">
+      <div class="c-photo cp2">
+        <div class="c-trees"></div>
+        <div class="c-water"></div>
+      </div>
+      <div class="c-label">🗺️&nbsp; Structure Maps</div>
+    </article>
+
+    <article class="l-card" onclick="showToast('💬 Live Chat Group — coming soon!')">
+      <div class="c-photo cp3">
+        <div class="c-sun"></div>
+        <div class="c-trees"></div>
+        <div class="c-water"></div>
+      </div>
+      <div class="c-label">💬&nbsp; Live Chat Group</div>
+    </article>
+  </div>
+</section>
+
+<!-- FOOTER LOGO -->
+<div class="footer-logo-area reveal">
+  <div class="flc-wrap">
+    <div class="flc">
+      <div class="flc-bg"></div>
+      <div class="flc-sun"></div>
+      <div class="flc-water"></div>
+      <div class="flc-hook">🪝</div>
+    </div>
+    <div class="flc-lines">
+      <div class="fl"></div><div class="fl"></div><div class="fl"></div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer" id="resources">
+  <nav class="foot-nav" aria-label="Footer">
+    <a href="#about">About</a><span class="dot">·</span>
+    <a href="#resources">Resources</a><span class="dot">·</span>
+    <a href="#illinois">Illinois Lakes</a><span class="dot">·</span>
+    <a href="#missouri" class="soon">Missouri <em>(Coming Soon)</em></a><span class="dot">·</span>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div class="foot-social">
+    <a class="soc" href="#" aria-label="Facebook">f</a>
+    <a class="soc" href="#" aria-label="Instagram" style="font-size:18px">📷</a>
+    <a class="soc" href="#" aria-label="Twitter">𝕏</a>
+  </div>
+  <p class="foot-copy">© 2026 BaitLogic.org &nbsp;·&nbsp; Every Angler. Every Water. &nbsp;·&nbsp; All rights reserved.</p>
+</footer>
+
+<!-- TOAST -->
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+// Scroll reveal
+const io = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}})
+},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+// Mobile menu
+function openMM(){document.getElementById('mMenu').classList.add('open');document.body.style.overflow='hidden'}
+function closeMM(){document.getElementById('mMenu').classList.remove('open');document.body.style.overflow=''}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMM()});
+
+// Toast
+let tt;
+function showToast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg;t.classList.add('show');
+  clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('show'),2800);
+}
+
+// Active nav on scroll
+const nls=document.querySelectorAll('.site-nav a');
+window.addEventListener('scroll',()=>{
+  let cur='';
+  document.querySelectorAll('section[id],div[id]').forEach(s=>{
+    if(window.scrollY>=s.offsetTop-130)cur=s.id;
+  });
+  nls.forEach(a=>{a.style.color=a.getAttribute('href')==='#'+cur?'#b8860b':''});
+},{passive:true});
+</script>
+</body>
+</html>
