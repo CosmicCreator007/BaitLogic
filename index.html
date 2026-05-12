@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>BaitLogic – Carlyle Lake Community Hub</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BaitLogic – Depth · Connection · Community</title>
+
   <style>
     :root {
       --bg-dark: #050814;
@@ -20,264 +21,120 @@
 
     body {
       margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: system-ui, -apple-system, sans-serif;
       background: var(--bg-dark);
       color: var(--text-main);
+      line-height: 1.5;
     }
 
-    a { color: inherit; }
-
-    /* NAVBAR */
-    .nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 20;
-      backdrop-filter: blur(12px);
-      background: linear-gradient(to bottom, rgba(5,8,20,0.9), rgba(5,8,20,0.4));
-      border-bottom: 1px solid rgba(148,163,184,0.25);
+    header {
+      padding: 20px;
+      text-align: center;
+      background: var(--bg-card);
+      border-bottom: 1px solid var(--border-subtle);
     }
 
-    .nav-inner {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 0.75rem 1.25rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+      color: var(--accent);
     }
 
-    .nav-left {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-
-    .nav-logo {
-      width: 36px;
-      height: 36px;
-      border-radius: 999px;
-      background: radial-gradient(circle at 30% 0%, #fbbf24, #f97316 45%, #7c2d12 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 0.9rem;
-      letter-spacing: 0.06em;
-    }
-
-    .nav-title {
-      font-weight: 600;
+    header p {
+      margin: 5px 0 0;
+      color: var(--text-muted);
       font-size: 1rem;
     }
 
-    .nav-links {
-      display: flex;
-      gap: 1rem;
-      font-size: 0.9rem;
-      color: var(--text-muted);
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      padding: 0.25rem 0.4rem;
-      border-radius: 999px;
-    }
-
-    .nav-links a:hover {
-      color: var(--text-main);
-      background: rgba(148,163,184,0.15);
-    }
-
-    .nav-right {
-      display: flex;
-      gap: 0.75rem;
-      align-items: center;
-      font-size: 0.9rem;
-    }
-
-    .btn-ghost {
-      padding: 0.45rem 0.9rem;
-      border-radius: 999px;
-      border: 1px solid rgba(148,163,184,0.4);
-      background: transparent;
-      color: var(--text-main);
-      text-decoration: none;
-    }
-
-    .btn-ghost:hover {
-      background: rgba(15,23,42,0.9);
-    }
-
-    .btn-nav-primary {
-      padding: 0.45rem 1rem;
-      border-radius: 999px;
-      border: none;
-      background: linear-gradient(to right, #f97316, #fbbf24);
-      color: #111827;
-      font-weight: 600;
-      text-decoration: none;
-    }
-
-    .btn-nav-primary:hover {
-      filter: brightness(1.05);
-    }
-
-    /* HERO */
     .hero {
-      min-height: 80vh;
-      padding: 6rem 1.5rem 3rem;
-      background:
-        linear-gradient(to bottom, rgba(15,23,42,0.1), #020617 70%),
-        radial-gradient(circle at top, rgba(56,189,248,0.18), transparent 55%),
-        radial-gradient(circle at bottom, rgba(249,115,22,0.25), transparent 60%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      padding: 60px 20px;
+      text-align: center;
+      background: radial-gradient(circle at 50% 100%, rgba(15,23,42,0.8), #050814);
     }
 
-    .hero-inner {
-      max-width: 1120px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-      gap: 2.5rem;
-      align-items: center;
-    }
-
-    @media (max-width: 900px) {
-      .hero-inner {
-        grid-template-columns: minmax(0, 1fr);
-        text-align: center;
-      }
-    }
-
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      padding: 0.25rem 0.7rem;
-      border-radius: 999px;
-      border: 1px solid rgba(148,163,184,0.5);
-      background: rgba(15,23,42,0.8);
-      font-size: 0.75rem;
-      color: var(--text-muted);
-      margin-bottom: 0.9rem;
-    }
-
-    .hero-badge-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      background: #22c55e;
-      box-shadow: 0 0 0 4px rgba(34,197,94,0.25);
-    }
-
-    .hero-title {
-      font-size: clamp(2.4rem, 4vw, 3.1rem);
-      line-height: 1.1;
-      margin: 0 0 0.75rem;
-    }
-
-    .hero-subtitle {
-      font-size: 1.05rem;
-      color: var(--text-muted);
-      max-width: 32rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .hero-tagline {
-      font-size: 0.95rem;
-      color: #e5e7eb;
-      margin-bottom: 1.75rem;
-    }
-
-    .hero-tagline span {
+    .hero h2 {
+      font-size: 2.2rem;
+      margin-bottom: 10px;
       color: var(--accent-soft);
-      font-weight: 600;
     }
 
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.9rem;
-      margin-bottom: 1.5rem;
-    }
-
-    @media (max-width: 900px) {
-      .hero-actions {
-        justify-content: center;
-      }
-    }
-
-    .btn-primary {
-      padding: 0.85rem 1.8rem;
-      border-radius: 999px;
-      border: none;
-      background: linear-gradient(to right, #f97316, #fbbf24);
-      color: #111827;
-      font-weight: 600;
-      text-decoration: none;
-      font-size: 0.95rem;
-    }
-
-    .btn-primary:hover {
-      filter: brightness(1.05);
-    }
-
-    .btn-secondary {
-      padding: 0.85rem 1.4rem;
-      border-radius: 999px;
-      border: 1px solid rgba(148,163,184,0.6);
-      background: rgba(15,23,42,0.9);
-      color: var(--text-main);
-      text-decoration: none;
-      font-size: 0.95rem;
-    }
-
-    .btn-secondary:hover {
-      background: rgba(15,23,42,1);
-    }
-
-    .hero-meta {
-      font-size: 0.8rem;
+    .hero p {
+      max-width: 600px;
+      margin: 0 auto;
       color: var(--text-muted);
+      font-size: 1.1rem;
     }
 
-    .hero-meta strong {
-      color: #e5e7eb;
+    .section {
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: 0 auto;
     }
 
-    .hero-visual {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .card {
+      background: var(--bg-card);
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid var(--border-subtle);
+      margin-bottom: 20px;
     }
 
-    .hero-orbit {
-      width: 260px;
-      height: 260px;
-      border-radius: 999px;
-      background:
-        radial-gradient(circle at 30% 0%, #fbbf24, #f97316 45%, #7c2d12 100%);
-      box-shadow:
-        0 0 40px rgba(249,115,22,0.6),
-        0 0 120px rgba(59,130,246,0.35);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
+    .card h3 {
+      margin-top: 0;
+      color: var(--accent);
     }
 
-    .hero-orbit-inner {
-      width: 82%;
-      height: 82%;
-      border-radius: 999px;
-      border: 2px solid rgba(15,23,42,0.4);
-      background:
-        radial-gradient(circle at 50% 0%, rgba(248,250,252,0.3), transparent 55%),
-        radial-gradient(circle at 50% 100%, rgba(15,23,42,0.8), #
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: var(--bg-footer);
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>BaitLogic</h1>
+  <p>Depth · Connection · Community</p>
+</header>
+
+<section class="hero">
+  <h2>Real Data. Real Anglers. Real Results.</h2>
+  <p>
+    Live bite reports, real‑time conditions, satellite maps, free depth charts, and a community that actually answers back.
+    No paywalls. No subscriptions. No gatekeeping.
+  </p>
+</section>
+
+<section class="section">
+  <div class="card">
+    <h3>🎣 Live Bite Reports</h3>
+    <p>See what anglers are catching right now across the St. Louis Metro & Southern Illinois region.</p>
+  </div>
+
+  <div class="card">
+    <h3>📡 Real‑Time Conditions</h3>
+    <p>Water levels, clarity, wind, pressure, and USGS depth data — all in one place.</p>
+  </div>
+
+  <div class="card">
+    <h3>🗺️ Satellite Maps & Structure</h3>
+    <p>Identify drop‑offs, channels, brush, and structure before you even hit the water.</p>
+  </div>
+
+  <div class="card">
+    <h3>🤝 A Community That Answers Back</h3>
+    <p>Beginner‑friendly, safe, and supportive. No ego. No gatekeeping. Just anglers helping anglers.</p>
+  </div>
+</section>
+
+<footer>
+  © 2026 BaitLogic — Built for every angler.
+</footer>
+
+</body>
+</html>
