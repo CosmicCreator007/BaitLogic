@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BaitLogic – Depth · Connection · Community</title>
+
+  <style>
+    :root {
+      --bg-dark: #050814;
+      --bg-card: #0b1120;
+      --bg-footer: #020617;
+      --accent: #f97316;
+      --accent-soft: #fbbf24;
+      --text-main: #f9fafb;
+      --text-muted: #9ca3af;
+      --border-subtle: #1f2937;
+      --btn-bg: #f97316;
+      --btn-bg-soft: #0ea5e9;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, sans-serif;
+      background: var(--bg-dark);
+      color: var(--text-main);
+      line-height: 1.5;
+    }
+
+    header {
+      padding: 20px;
+      text-align: center;
+      background: var(--bg-card);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+      color: var(--accent);
+    }
+
+    header p {
+      margin: 5px 0 0;
+      color: var(--text-muted);
+      font-size: 1rem;
+    }
+
+    .hero {
+      padding: 60px 20px 40px;
+      text-align: center;
+      background: radial-gradient(circle at 50% 100%, rgba(14,165,233,0.3), #050814);
+    }
+
+    .hero h2 {
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+      color: var(--accent-soft);
+    }
+
+    .hero p {
+      max-width: 600px;
+      margin: 0 auto 24px;
+      color: var(--text-muted);
+      font-size: 1.1rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 10px 18px;
+      border-radius: 999px;
+      border: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      color: #0b1120;
+    }
+
+    .btn-primary {
+      background: var(--btn-bg);
+      color: #0b1120;
+    }
+
+    .btn-secondary {
+      background: var(--btn-bg-soft);
+      color: #020617;
+    }
+
+    .section {
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: var(--bg-card);
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid var(--border-subtle);
+      margin-bottom: 20px;
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: var(--accent);
+    }
+
+    /* MULTI-LAKE GRID */
+    .lake-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .lake-box {
+      background: var(--bg-card);
+      padding: 16px;
+      border-radius: 10px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .lake-box h4 {
+      margin: 0 0 8px 0;
+      color: var(--accent-soft);
+    }
+
+    .lake-link {
+      margin-top: 8px;
+      font-size: 0.85rem;
+    }
+
+    .lake-link a {
+      color: var(--btn-bg-soft);
+      text-decoration: none;
+    }
+
+    .lake-link a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: var(--bg-footer);
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>BaitLogic</h1>
+  <p>Depth · Connection · Community</p>
+</header>
+
+<section class="hero">
+  <h2>Real Data. Real Anglers. Real Results.</h2>
+  <p>
+    Live bite reports, real‑time conditions, satellite maps, free depth charts, and a community that actually answers back.
+    No paywalls. No subscriptions. No gatekeeping.
+  </p>
+
+  <div class="hero-buttons">
+    <a href="#live-water" class="btn btn-primary">View Live Water Levels</a>
+    <a href="#lakes" class="btn btn-secondary">Explore Lakes</a>
+  </div>
+</section>
+
+<section class="section" id="live-water">
+
+  <!-- LIVE MULTI-LAKE USGS GRID -->
+  <div class="card">
+    <h3>📡 Live Water Conditions</h3>
+    <p style="color: var(--text-muted); margin-top: -10px;">
+      Auto‑updated from USGS every time the page loads.
+    </p>
+
+    <div class="lake-grid" id="lakes">
+
+      <div class="lake-box" data-site="05593000">
+        <h4>Carlyle Lake</h4>
+        <p class="loading">Loading…</p>
+        <div class="data" style="display:none;">
+          <p><strong>Level:</strong> <span class="level"></span></p>
+          <p><strong>Flow:</strong> <span class="flow"></span></p>
+          <p><strong>Updated:</strong> <span class="time"></span></p>
+        </div>
+        <p class="lake-link"><a href="#">View Carlyle details</a></p>
+      </div>
+
+      <div class="lake-box" data-site="05592500">
+        <h4>Silver Lake</h4>
+        <p class="loading">Loading…</p>
+        <div class="data" style="display:none;">
+          <p><strong>Level:</strong> <span class="level"></span></p>
+          <p><strong>Flow:</strong> <span class="flow"></span></p>
+          <p><strong>Updated:</strong> <span class="time"></span></p>
+        </div>
+        <p class="lake-link"><a href="#">View Silver Lake details</a></p>
+      </div>
+
+      <div class="lake-box" data-site="05594000">
+        <h4>Rend Lake</h4>
+        <p class="loading">Loading…</p>
+        <div class="data" style="display:none;">
+          <p><strong>Level:</strong> <span class="level"></span></p>
+          <p><strong>Flow:</strong> <span class="flow"></span></p>
+          <p><strong>Updated:</strong> <span class="time"></span></p>
+        </div>
+        <p class="lake-link"><a href="#">View Rend Lake details</a></p>
+      </div>
+
+      <div class="lake-box" data-site="05593050">
+        <h4>Kaskaskia River</h4>
+        <p class="loading">Loading…</p>
+        <div class="data" style="display:none;">
+          <p><strong>Level:</strong> <span class="level"></span></p>
+          <p><strong>Flow:</strong> <span class="flow"></span></p>
+          <p><strong>Updated:</strong> <span class="time"></span></p>
+        </div>
+        <p class="lake-link"><a href="#">View Kaskaskia details</a></p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ORIGINAL FEATURE CARDS -->
+  <div class="card">
+    <h3>🎣 Live Bite Reports</h3>
+    <p>See what anglers are catching right now across the St. Louis Metro & Southern Illinois region.</p>
+  </div>
+
+  <div class="card">
+    <h3>📡 Real‑Time Conditions</h3>
+    <p>Water levels, clarity, wind, pressure, and USGS depth data — all in one place.</p>
+  </div>
+
+  <div class="card">
+    <h3>🗺️ Satellite Maps & Structure</h3>
+    <p>Identify drop‑offs, channels, brush, and structure before you even hit the water.</p>
+  </div>
+
+  <div class="card">
+    <h3>🤝 A Community That Answers Back</h3>
+    <p>Beginner‑friendly, safe, and supportive. No ego. No gatekeeping. Just anglers helping anglers.</p>
+  </div>
+</section>
+
+<footer>
+  © 2026 BaitLogic — Built for every angler.
+</footer>
+
+<script>
+async function loadLakeData(box) {
+  const site = box.dataset.site;
+  const url =
+    `https://waterservices.usgs.gov/nwis/iv/?format=json&sites=${site}&parameterCd=00065,00060&siteStatus=active`;
+
+  try {
+    const res = await fetch(url);
+    const data = await res.json();
+
+    const series = data.value.timeSeries;
+
+    const gauge = series.find(s => s.variable.variableCode[0].value === "00065");
+    const flow = series.find(s => s.variable.variableCode[0].value === "00060");
+
+    const gaugeValue = gauge?.values[0].value[0].value ?? "—";
+    const flowValue = flow?.values[0].value[0].value ?? "—";
+    const timestamp = gauge?.values[0].value[0].dateTime ?? null;
+
+    box.querySelector(".level").textContent = gaugeValue + " ft";
+    box.querySelector(".flow").textContent = flowValue + " cfs";
+    box.querySelector(".time").textContent = timestamp
+      ? new Date(timestamp).toLocaleString()
+      : "—";
+
+    box.querySelector(".loading").style.display = "none";
+    box.querySelector(".data").style.display = "block";
+  } catch (err) {
+    box.querySelector(".loading").textContent = "Error loading data";
+  }
+}
+
+document.querySelectorAll(".lake-box").forEach(loadLakeData);
+</script>
+
+</body>
+</html>
