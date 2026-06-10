@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>BaitLogic | The Future of Southern Illinois Fishing</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .gradient-blue { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }
+        .accent-orange { color: #f97316; }
+        .bg-accent-orange { background-color: #f97316; }
+        .conservation-green { color: #22c55e; }
+    </style>
+</head>
+
+<body class="bg-slate-900 text-white font-sans leading-relaxed">
+
+    <!-- Navigation -->
+    <nav class="p-6 flex justify-between items-center border-b border-slate-800">
+        <div class="text-2xl font-black tracking-tighter italic">BAIT<span class="accent-orange">LOGIC</span></div>
+
+        <!-- Mobile Menu Button -->
+        <button id="menuBtn" class="md:hidden text-2xl">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex space-x-8 text-sm font-bold uppercase tracking-widest">
+            <a href="#intelligence" class="hover:text-orange-500 transition">Intelligence</a>
+            <a href="#community" class="hover:text-orange-500 transition">Community</a>
+            <a href="#conservation" class="hover:text-orange-500 transition">Conservation</a>
+            <a href="#business" class="hover:text-orange-500 transition text-orange-400">Business Hub</a>
+        </div>
+    </nav>
+
+    <!-- Mobile Dropdown -->
+    <div id="mobileMenu" class="hidden flex-col bg-slate-800 text-center py-4 space-y-4 text-sm font-bold uppercase tracking-widest md:hidden">
+        <a href="#intelligence">Intelligence</a>
+        <a href="#community">Community</a>
+        <a href="#conservation">Conservation</a>
+        <a href="#business" class="text-orange-400">Business Hub</a>
+    </div>
+
+    <script>
+        document.getElementById("menuBtn").onclick = () => {
+            document.getElementById("mobileMenu").classList.toggle("hidden");
+        };
+    </script>
+
+    <!-- Hero Section -->
