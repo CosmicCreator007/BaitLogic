@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="BaitLogic™ — Free local fishing intel for Southern Illinois and St. Louis Metro anglers.">
+<title>BaitLogic™ — Meet the Platform</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,800;0,900;1,800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Barlow',sans-serif;background:#080b09;color:#d8e8d8;min-height:100vh;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+:root{--green:#39d353;--amber:#f5a623;--bg1:#0d120d;--bg2:#111611;--bg3:#161d16;--muted:rgba(216,232,216,0.55);--faint:rgba(216,232,216,0.25);--b1:rgba(57,211,83,0.14);--b2:rgba(216,232,216,0.07)}
+
+.wrap{max-width:480px;margin:0 auto;padding:0 0 48px}
+
+/* HERO */
+.hero{background:linear-gradient(180deg,#0d120d 0%,#080b09 100%);padding:40px 24px 32px;text-align:center;border-bottom:1px solid var(--b1)}
+.logo{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:36px;letter-spacing:3px;color:#d8e8d8;margin-bottom:4px}
+.logo em{color:var(--green)}
+.tagline{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--green);margin-bottom:20px}
+.hero-icon{font-size:56px;margin-bottom:16px;display:block}
+.hero-headline{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(32px,8vw,48px);line-height:.95;text-transform:uppercase;margin-bottom:14px}
+.hero-headline em{color:var(--green);font-style:italic;display:block}
+.hero-desc{font-size:15px;color:var(--muted);line-height:1.75;margin-bottom:24px;max-width:380px;margin-left:auto;margin-right:auto}
+.hero-btn{display:inline-block;background:var(--green);color:#060906;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:14px;letter-spacing:2px;text-transform:uppercase;padding:14px 40px;border-radius:3px;margin-bottom:10px}
+.hero-url{font-size:12px;color:var(--faint);letter-spacing:1px}
+
+/* FOUNDER */
+.founder{padding:28px 24px;border-bottom:1px solid var(--b2);background:var(--bg1)}
+.eyebrow{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--green);margin-bottom:12px;display:flex;align-items:center;gap:6px}
+.eyebrow::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--green);display:block}
+.founder-row{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+.avatar{width:52px;height:52px;border-radius:50%;background:var(--bg3);border:2px solid rgba(57,211,83,0.3);display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0}
+.f-name{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:20px;text-transform:uppercase;letter-spacing:1px;color:#d8e8d8}
+.f-title{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--green);margin-top:2px}
+.f-loc{font-size:11px;color:var(--muted);margin-top:2px}
+.f-story{font-size:13px;color:var(--muted);line-height:1.75}
+.f-story strong{color:#d8e8d8}
+
+/* PILLARS */
+.pillars{padding:24px 24px;border-bottom:1px solid var(--b2)}
+.pillar{background:var(--bg2);border:1px solid var(--b2);border-left:3px solid var(--green);border-radius:6px;padding:14px 16px;margin-bottom:8px}
+.p-title{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:15px;text-transform:uppercase;letter-spacing:.5px;color:#d8e8d8;margin-bottom:4px}
+.p-desc{font-size:12px;color:var(--muted);line-height:1.6}
+
+/* FEATURES */
+.features{padding:24px 24px;border-bottom:1px solid var(--b2);background:var(--bg1)}
+.feat-row{display:flex;align-items:flex-start;gap:12px;margin-bottom:14px}
+.feat-icon{font-size:22px;flex-shrink:0;margin-top:2px}
+.feat-title{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:15px;text-transform:uppercase;letter-spacing:.5px;color:#d8e8d8;margin-bottom:3px}
+.feat-desc{font-size:12px;color:var(--muted);line-height:1.6}
+.feat-tag{display:inline-block;margin-top:5px;font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:2px 7px;border-radius:2px;background:rgba(57,211,83,.08);border:1px solid rgba(57,211,83,.2);color:var(--green)}
+
+/* CLEANUP CALLOUT */
+.cleanup-box{margin:0 24px 0;background:rgba(232,65,42,0.06);border:1px solid rgba(232,65,42,0.2);border-radius:8px;padding:18px 18px}
+.cleanup-title{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:18px;text-transform:uppercase;letter-spacing:.5px;color:#d8e8d8;margin-bottom:6px}
+.cleanup-desc{font-size:13px;color:var(--muted);line-height:1.65;margin-bottom:12px}
+.cleanup-join{display:inline-block;background:rgba(232,65,42,0.15);border:1px solid rgba(232,65,42,0.35);color:#e8412a;font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:8px 16px;border-radius:3px}
+
+/* FREE BADGE */
+.free-strip{padding:20px 24px;text-align:center;background:var(--bg1);border-top:1px solid var(--b1);border-bottom:1px solid var(--b1);margin-top:24px}
+.free-big{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:48px;color:var(--green);line-height:1;margin-bottom:4px}
+.free-sub{font-size:13px;color:var(--muted);letter-spacing:.5px}
+
+/* CTA */
+.cta-box{padding:28px 24px;text-align:center}
+.cta-title{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:28px;text-transform:uppercase;letter-spacing:-.5px;color:#d8e8d8;margin-bottom:6px}
+.cta-title em{color:var(--green);font-style:italic}
+.cta-sub{font-size:13px;color:var(--muted);margin-bottom:20px;line-height:1.6}
+.cta-main{display:block;background:var(--green);color:#060906;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:15px;letter-spacing:2px;text-transform:uppercase;padding:15px 24px;border-radius:3px;margin-bottom:10px;text-align:center}
+.cta-secondary{display:block;background:transparent;color:var(--muted);font-family:'Barlow Condensed',sans-serif;font-size:12px;letter-spacing:2px;text-transform:uppercase;padding:12px 24px;border-radius:3px;border:1px solid var(--b2);text-align:center}
+
+/* SHARE ROW */
+.share-row{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;padding:0 24px 24px}
+.s-btn{flex:1;min-width:100px;font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:10px 12px;border-radius:3px;border:1px solid var(--b2);background:var(--bg2);color:var(--muted);cursor:pointer;text-align:center;transition:all .2s}
+.s-btn:hover{border-color:var(--green);color:var(--green)}
+
+.footer{padding:20px 24px;text-align:center;border-top:1px solid var(--b2)}
+.footer-copy{font-size:10px;color:var(--faint);letter-spacing:.5px}
+
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(14px);background:#1a221a;color:#d8e8d8;font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;letter-spacing:1px;padding:11px 22px;border-radius:3px;border:1px solid rgba(57,211,83,.2);opacity:0;pointer-events:none;transition:opacity .3s,transform .3s;z-index:9999;white-space:nowrap}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- HERO -->
+<div class="hero">
+  <span class="hero-icon">🎣</span>
+  <div class="logo">BAIT<em>LOGIC</em>™</div>
+  <div class="tagline">Every Angler. Every Water.</div>
+  <h1 class="hero-headline">Free Local<em>Fishing Intel.</em></h1>
+  <p class="hero-desc">The platform built for St. Louis and Southern Illinois anglers. Real-time conditions, community bite reports, depth maps, and a movement to protect our local waters.</p>
+  <a href="https://baitlogic.org" class="hero-btn">Visit BaitLogic →</a>
+  <div class="hero-url">baitlogic.org · Free · No Sign-Up Required</div>
+</div>
+
+<!-- FOUNDER -->
+<div class="founder">
+  <div class="eyebrow">Who Built This</div>
+  <div class="founder-row">
+    <div class="avatar">🎣</div>
+    <div>
+      <div class="f-name">Amber</div>
+      <div class="f-title">Founder · BaitLogic™</div>
+      <div class="f-loc">📍 Highland / Collinsville, IL</div>
+    </div>
+  </div>
+  <p class="f-story">I am a <strong>self-taught angler</strong> who got tired of showing up to the water without the right information. Every fishing app I tried was built for everyone — which means it was built for no one. So I built BaitLogic from my phone, for anglers like me, in the communities I fish.</p>
+  <br>
+  <p class="f-story">I fish Carlyle Lake, Silver Lake, and the Mississippi River. I watch people leave trash and fishing line everywhere. I see the water quality decline. BaitLogic is my answer to all of it — <strong>community, real data, and conservation built into one free platform.</strong></p>
+</div>
+
+<!-- PILLARS -->
+<div class="pillars">
+  <div class="eyebrow">The Mission</div>
+  <div class="pillar">
+    <div class="p-title">🎣 Community First — Always Free</div>
+    <div class="p-desc">For the bank fisher, the beginner, the underserved angler who never had the right tools. Core features are free forever. No paywalls on fishing information. Ever.</div>
+  </div>
+  <div class="pillar">
+    <div class="p-title">📡 Real Local Intelligence</div>
+    <div class="p-desc">Live NOAA weather. USGS water temps. Community bite reports verified against real conditions. Depth charts for Carlyle, Silver Lake, Horseshoe, and the Mississippi. All in one place.</div>
+  </div>
+  <div class="pillar" style="border-left-color:var(--amber)">
+    <div class="p-title">🌊 Conservation Always</div>
+    <div class="p-desc">The Waterway Health Index and Clean Up Crew are not features — they are the reason this exists. We are organizing anglers to protect the waters we fish before it is too late.</div>
+  </div>
+</div>
+
+<!-- FEATURES -->
+<div class="features">
+  <div class="eyebrow">What BaitLogic Does</div>
+  <div class="feat-row">
+    <div class="feat-icon">🌡️</div>
+    <div><div class="feat-title">Live Conditions</div><div class="feat-desc">Real air and water temps, wind, and sky from NOAA and USGS sensors — updated every 5 minutes for your exact waters.</div><span class="feat-tag">Live · Free</span></div>
+  </div>
+  <div class="feat-row">
+    <div class="feat-icon">📊</div>
+    <div><div class="feat-title">Depth Finder</div><div class="feat-desc">Free depth charts and structure data for Carlyle Lake, Silver Lake, Horseshoe Lake, and the Mississippi River. Know where the fish are holding before you leave.</div><span class="feat-tag">No Login</span></div>
+  </div>
+  <div class="feat-row">
+    <div class="feat-icon">👥</div>
+    <div><div class="feat-title">Community Bite Reports</div><div class="feat-desc">Real anglers reporting what is biting, where, and on what. Cross-referenced with live conditions for verified accuracy.</div><span class="feat-tag">Real People</span></div>
+  </div>
+  <div class="feat-row">
+    <div class="feat-icon">🐠</div>
+    <div><div class="feat-title">Species ID + Regulations</div><div class="feat-desc">Visual guides for every species in local waters. Seasonal patterns, size limits, and what they are hitting right now.</div><span class="feat-tag">Illinois + Missouri</span></div>
+  </div>
+  <div class="feat-row">
+    <div class="feat-icon">🎣</div>
+    <div><div class="feat-title">Personal Catch Log</div><div class="feat-desc">Log your catches. Works offline. Builds your record over time. Cross-referenced with conditions for Verified Legend status.</div><span class="feat-tag">Works Offline</span></div>
+  </div>
+</div>
+
+<!-- CLEANUP -->
+<div style="padding:24px 24px 0;background:var(--bg1)">
+  <div class="eyebrow" style="margin-bottom:12px">Taking Action · Carlyle Lake</div>
+  <div class="cleanup-box">
+    <div class="cleanup-title">🧹 Clean Up Crew — Join Us</div>
+    <div class="cleanup-desc">Carlyle Lake is one of the best fisheries in Illinois and it is being destroyed by abandoned fishing line, plastic trash, and illegal dumping. BaitLogic is organizing the people who care enough to do something about it. Cleanup events, Guardian badges, and a community that shows up.</div>
+    <a href="https://baitlogic.org#cleanup" class="cleanup-join">Sign Up at BaitLogic.org →</a>
+  </div>
+</div>
+
+<!-- FREE STRIP -->
+<div class="free-strip">
+  <div class="free-big">FREE</div>
+  <div class="free-sub">No subscription · No paywall · No gatekeeping · Built for everyone</div>
+</div>
+
+<!-- CTA -->
+<div class="cta-box">
+  <div class="cta-title">Ready to Fish <em>Smarter?</em></div>
+  <div class="cta-sub">Join early access — be first to every new feature and help shape what gets built next for our fishing community.</div>
+  <a href="https://baitlogic.org#join" class="cta-main">Join BaitLogic Free →</a>
+  <a href="https://baitlogic.org" class="cta-secondary">Explore the Platform</a>
+</div>
+
+<!-- SHARE -->
+<div class="share-row">
+  <button class="s-btn" onclick="copySMS()">📋 Copy to Share</button>
+  <button class="s-btn" onclick="doSMS()">💬 Text a Friend</button>
+  <button class="s-btn" onclick="doEmail()">✉️ Email It</button>
+</div>
+
+<div class="footer">
+  <div class="footer-copy">© 2026 BaitLogic™ · baitlogic.org · Southern Illinois · Beta · Built from a phone, for anglers</div>
+</div>
+
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+let tt;
+function showToast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('show'),3000)}
+function copySMS(){
+  const msg='Check out BaitLogic — free local fishing intel for Southern IL and St. Louis anglers. Live conditions, depth maps, community reports, and a Clean Up Crew protecting Carlyle Lake. baitlogic.org';
+  if(navigator.clipboard){navigator.clipboard.writeText(msg).then(()=>showToast('📋 Copied — ready to paste!'))}
+  else{const ta=document.createElement('textarea');ta.value=msg;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);showToast('📋 Copied!')}
+}
+function doSMS(){
+  const msg=encodeURIComponent('Check out BaitLogic — free local fishing intel for Southern IL and St. Louis anglers. Live conditions, depth maps, community reports, and a Clean Up Crew protecting Carlyle Lake. baitlogic.org');
+  window.location.href='sms:?body='+msg;
+}
+function doEmail(){
+  const s=encodeURIComponent('BaitLogic — Free Local Fishing Intel');
+  const b=encodeURIComponent('Hey — check out BaitLogic.\n\nFree fishing platform built for Southern Illinois and St. Louis Metro anglers. Live water conditions, community bite reports, depth charts for Carlyle Lake and Silver Lake, species ID, and a Clean Up Crew organizing to protect our local waters.\n\nBuilt by a local angler. Free forever.\n\nbaitlogic.org');
+  window.location.href='mailto:?subject='+s+'&body='+b;
+}
+</script>
+</body>
+</html>
