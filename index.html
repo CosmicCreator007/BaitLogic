@@ -1,19 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="description" content="BaitLogic™ — Local fishing intel for St. Louis Metro and Southern Illinois. Real-time conditions, community reports, depth maps, and gear.">
-<meta name="theme-color" content="#080b09">
-<title>BaitLogic™ — Local Fishing Intel</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;0,900;1,700;1,800&family=Barlow:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<style>
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:'Barlow',sans-serif;background:#080b09;color:#d8e8d8;overflow-x:hidden;-webkit-font-smoothing:antialiased}
-a{text-decoration:none;color:inherit}
-ul{list-style:none}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BaitLogic™ – Local Fishing Intelligence</title>
+    <style>
+        body { margin:0; font-family: Arial, sans-serif; color:#111; line-height:1.5; }
+        section { padding:80px 20px; max-width:1100px; margin:auto; }
+        h1, h2 { margin-bottom:20px; }
+        .hero { text-align:center; padding:120px 20px; }
+        .hero-buttons { margin-top:30px; }
+        .btn { padding:14px 28px; margin:6px; border-radius:6px; text-decoration:none; font-weight:bold; display:inline-block; }
+        .btn-primary { background:#0a5; color:#fff; }
+        .btn-secondary { border:2px solid #0a5; color:#0a5; }
+        .grid { display:grid; gap:30px; }
+        @media(min-width:800px){ .grid-3 { grid-template-columns:repeat(3,1fr); } .two-col { display:flex; gap:40px; } }
+        .feature-card { padding:20px; border:1px solid #ddd; border-radius:8px; }
+        .dark { background:#0f1f2f; color:#fff; }
+        .center { text-align:center; }
+        .trust-list li { margin:10px 0; }
+    </style>
+</head>
 
-/* ── TOKENS ── */
-:root{…
+<body>
+
+<!-- HERO -->
+<section class="hero">
+    <h1>The free fishing platform built for Southern Illinois and the St. Louis Metro</h1>
+    <p>Live conditions. Local depth charts. Community bite reports. Species tools. Offline catch logs.<br>
+    Built for the waters we actually fish — not generic apps built for everywhere and useful nowhere.</p>
+
+    <div class="hero-buttons">
+        <a href="#" class="btn btn-primary">Join Free</a>
+        <a href="#" class="btn btn-secondary">Explore BaitLogic</a>
+    </div>
+
+    <p>No paywalls. No subscriptions. No gatekeeping.</p>
+</section>
+
+<!-- WHY BAITLOGIC EXISTS -->
+<section>
+    <div class="two-col">
+        <div>
+            <img src="founder.jpg" alt="Founder" style="width:100%; border-radius:8px;">
+        </div>
+        <div>
+            <h2>Built because our area deserved better</h2>
+            <p>I’m Amber — a self‑taught angler from Highland and Collinsville, Illinois. I built BaitLogic from my phone with no team, no funding, and no shortcuts because I was tired of showing up to the water without the right information.</p>
+            <p>I fish Carlyle Lake, Silver Lake, and the Mississippi River. Like a lot of local anglers, I got tired of using apps that weren’t built for our lakes, our river systems, or the way we actually fish here.</p>
+            <p>So I built the platform I wished existed.</p>
+        </div>
+    </div>
+</section>
+
+<!-- FEATURES -->
+<section>
+    <h2>Everything local anglers actually need</h2>
+
+    <div class="grid grid-3">
+        <div class="feature-card">
+            <h3>Live Local Conditions</h3>
+            <p>Water data and fishing‑relevant info built around real decisions on the water.</p>
+        </div>
+
+        <div class="feature-card">
+            <h3>Community Bite Reports</h3>
+            <p>See what’s happening from anglers fishing the same waters you are.</p>
+        </div>
+
+        <div class="feature-card">
+            <h3>Local Depth Charts</h3>
+            <p>Spend less time guessing and more time catching.</p>
+        </div>
+
+        <div class="feature-card">
+            <h3>Species ID Tools</h3>
+            <p>Identify your catch fast and learn about local species.</p>
+        </div>
+
+        <div class="feature-card">
+            <h3>Offline Catch Log</h3>
+            <p>Log catches even when service is weak or nonexistent.</p>
+        </div>
+
+        <div class="feature-card">
+            <h3>Built for Southern Illinois + St. Louis Metro</h3>
+            <p>Not national fluff. Local usefulness.</p>
+        </div>
+    </div>
+</section>
+
+<!-- DIFFERENT -->
+<section class="dark center">
+    <h2>Not another generic fishing app</h2>
+    <p>Most fishing apps try to work everywhere. That usually means they don’t work well enough anywhere.</p>
+    <p>BaitLogic is different. It was built specifically for anglers in Southern Illinois and the St. Louis Metro — the people fishing Carlyle Lake, Silver Lake, the Mississippi River, and the waters around them.</p>
+    <p>Local focus isn’t a feature. It’s the whole point.</p>
+</section>
+
+<!-- MISSION / CLEANUP -->
+<section>
+    <h2>Protect the waters we fish</h2>
+    <p>BaitLogic is also about stewardship. Every season, trash and fishing line get left behind at Carlyle Lake and other local waters.</p>
+    <p>The Guardian Program and Clean Up Crew bring together anglers who care enough to do something about it.</p>
+    <p>If we love these places, we need to protect them.</p>
+
+    <div class="hero-buttons">
+        <a href="#" class="btn btn-primary">Join the Clean Up Crew</a>
+        <a href="#" class="btn btn-secondary">Support the Guardian Program</a>
+    </div>
+</section>
+
+<!-- SOCIAL PROOF -->
+<section class="center">
+    <h2>Built by a real local angler</h2>
+    <ul class="trust-list" style="list-style:none; padding:0;">
+        <li>Founded by an angler who fishes these waters</li>
+        <li>Built from a phone, not a corporate office</li>
+        <li>Focused on Southern Illinois and St. Louis Metro anglers</li>
+        <li>Free forever</li>
+    </ul>
+</section>
+
+<!-- FINAL CTA -->
+<section class="center">
+    <h2>If you fish here, BaitLogic was built for you</h2>
+    <p>Stop relying on scattered posts, generic apps, and outdated info. Join the free local fishing platform built for our waters and our community.</p>
+
+    <a href="#" class="btn btn-primary">Join Free at baitlogic.org</a>
+</section>
+
+</body>
+</html>
