@@ -260,3 +260,22 @@ button {
         font-size: 1.4rem;
     }
 }
+
+/* MOBILE OPTIMIZATION */
+@media (max-width: 600px) {
+    #lake-selector {
+        width: 100%;
+        max-width: 100%;
+        padding: 1rem 1.2rem;
+
+        font-size: 1rem;
+        letter-spacing: 0.15em;
+
+        background-position: calc(100% - 20px) 50%,
+                             calc(100% - 14px) 50%;
+        background-size: 8px 8px, 8px 8px;
+
+        margin-top: 1.2rem;
+        margin-bottom: 1.8rem;
+    }
+}
