@@ -88,6 +88,47 @@ button {
     text-decoration: none;
 }
 
+/* Lake Selector */
+#lake-selector {
+    width: 100%;
+    max-width: 260px;
+    padding: 0.75rem 1rem;
+    margin: 1rem 0 1.5rem 0;
+
+    background: #0A0C14;
+    color: #F5F5F7;
+
+    border: 1px solid #26293A;
+    border-radius: 0;
+
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+
+    appearance: none;
+    cursor: pointer;
+}
+
+/* Dropdown arrow */
+#lake-selector {
+    background-image: linear-gradient(45deg, transparent 50%, #9BB4FF 50%),
+                      linear-gradient(135deg, #9BB4FF 50%, transparent 50%);
+    background-position: calc(100% - 18px) calc(50% - 4px),
+                         calc(100% - 12px) calc(50% - 4px);
+    background-size: 6px 6px, 6px 6px;
+    background-repeat: no-repeat;
+}
+
+/* Hover */
+#lake-selector:hover {
+    border-color: #9BB4FF;
+}
+
+/* Focus */
+#lake-selector:focus {
+    outline: none;
+    border-color: #2F7DF6;
+}
 .cta-button {
     background: #2F7DF6;
     color: #F5F5F7;
