@@ -1,1 +1,3 @@
-BaitLogic delivers real local fishing intel and real‑time water‑quality insights to protect the lakes we fish. Built to help anglers catch smarter while supporting healthier ecosystems through community reporting and on‑the‑water data. As a self‑taught new coder, progress takes time — but every update pushes the platform forward. All advice and opinions welcome! let's change the world doing something we love. Leave a legacy 🫶🏼
+Community First — Free forever for every angler regardless of experience or equipment.
+Real Intelligence — Live government data, community reports, and depth charts before you leave the house.
+Conservation Always — The Waterway Health Index and Clean Up Crew exist to protect Carlyle Lake and our local waters.
