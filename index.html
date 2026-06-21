@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BaitLogic</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #0b0b0b;
+        color: #e5e5e5;
+    }
+    h1, h2, h3 {
+        color: #4cff79;
+        margin-bottom: 10px;
+    }
+    a {
+        color: #4cff79;
+        text-decoration: none;
+        font-weight: bold;
+    }
+    .section {
+        padding: 25px;
+        border-bottom: 1px solid #1a1a1a;
+    }
+    .card {
+        background: #111;
+        padding: 20px;
+        border-radius: 10px;
+        margin-top: 15px;
+        border: 1px solid #1f1f1f;
+    }
+    .stat-row {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 15px;
+    }
+    .stat {
+        background: #111;
+        padding: 15px;
+        border-radius: 10px;
+        width: 30%;
+        text-align: center;
+        border: 1px solid #1f1f1f;
+    }
+    .report {
+        background: #111;
+        padding: 15px;
+        border-radius: 10px;
+        margin-top: 10px;
+        border: 1px solid #1f1f1f;
+    }
+    ul li {
+        margin-bottom: 8px;
+    }
+    label {
+        display: block;
+        margin-top: 8px;
+        margin-bottom: 4px;
+        font-size: 0.9rem;
+        color: #cfcfcf;
+    }
+    input, select, textarea {
+        width: 100%;
+        padding: 8px;
+        border-radius: 6px;
+        border: 1px solid #333;
+        background: #050505;
+        color: #e5e5e5;
+        font-size: 0.9rem;
+    }
+    button {
+        margin-top: 12px;
+        padding: 10px 16px;
+        border-radius: 6px;
+        border: none;
+        background: #4cff79;
+        color: #000;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    button:hover {
+        background: #37d45d;
+    }
+    small {
+        color: #aaaaaa;
+        font-size: 0.8rem;
+    }
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="section">
+    <h1>BaitLogic</h1>
+    <p>Fishing Intelligence • Community • Conservation</p>
+
+    <div class="stat-row">
+        <div class="stat"><strong>24</strong><br>Active Anglers</div>
+        <div class="stat"><strong>12</strong><br>Local Waters</div>
+        <div class="stat"><strong>8</strong><br>Species Tracked</div>
+    </div>
+</div>
+
+<!-- WEATHER & WATER (STATIC SUMMARY) -->
+<div class="section">
+    <h2>Weather & Water</h2>
+    <p>Real-time conditions for your waters.</p>
+
+    <div class="card">
+        <p><strong>Air Temp (example):</strong> 72°F</p>
+        <p><strong>Wind (example):</strong> 8 mph</p>
+        <p><strong>Water Temp (example):</strong> 64°F</p>
+        <a href="#">VIEW FULL FORECAST →</a>
+    </div>
+</div>
+
+<!-- LIVE WATER DATA (STRUCTURE READY FOR REAL FEEDS) -->
+<div class="section">
+    <h2>Live Water Data</h2>
+    <p>Structure ready for live feeds (USGS, NOAA, local sensors). Values below are placeholders until wired to APIs.</p>
+
+    <div class="card">
+        <h3>Current Conditions — Example Lake</h3>
+        <ul>
+            <li><strong>Water Temperature:</strong> <span id="live-water-temp">64°F</span></li>
+            <li><strong>Dissolved Oxygen:</strong> <span id="live-do">7.8 mg/L</span></li>
+            <li><strong>pH:</strong> <span id="live-ph">7.4</span></li>
+            <li><strong>Turbidity:</strong> <span id="live-turbidity">Moderate</span></li>
+            <li><strong>Flow / Level:</strong> <span id="live-level">Normal</span></li>
+        </ul>
+        <small>Note: These values are static placeholders until connected to live data sources.</small>
+    </div>
+</div>
+
+<!-- COMMUNITY REPORTS -->
+<div class="section">
+    <h2>Community — Local Reports</h2>
+    <p>Real catches from real anglers. No spam. No fake content. Verified by the community.</p>
+
+    <div class="report">
+        <strong>Mike R. — 2h ago</strong><br>
+        5lb largemouth on a jig at Horseshoe Lake
+    </div>
+
+    <div class="report">
+        <strong>Sarah T. — 4h ago</strong><br>
+        Crappie stacked at 12ft, Carlyle Lake brush piles
+    </div>
+
+    <div class="report">
+        <strong>Dan W. — 6h ago</strong><br>
+        Channel cats hitting cut shad below Mel Price
+    </div>
+
+    <a href="#">VIEW COMMUNITY HUB →</a>
+</div>
+
+<!-- SPECIES ID -->
+<div class="section">
+    <h2>Species ID — Know Your Catch</h2>
+    <p>Identification, regulations, records, and seasonal patterns.</p>
+
+    <a href="#">SPECIES GUIDE →</a>
+</div>
+
+<!-- MARKETPLACE -->
+<div class="section">
+    <h2>Marketplace — Local Gear</h2>
+    <p>Buy, sell, and trade gear with verified anglers.</p>
+
+    <a href="#">BROWSE GEAR →</a>
+</div>
+
+<!-- CONSERVATION & WATER HEALTH -->
+<div class="section">
+    <h2>Conservation & Water Health</h2>
+    <p>BaitLogic treats water health as non‑negotiable. Every angler plays a role in protecting our waters.</p>
+
+    <!-- WATER TESTING -->
+    <div class="card">
+        <h3>Water Testing Instructions</h3>
+        <ul>
+            <li>Use test strips for pH, ammonia, nitrites, nitrates, hardness, and alkalinity</li>
+            <li>Dip strip 2–3 seconds, wait 30–60 seconds for color change</li>
+            <li>Compare to chart and log results in BaitLogic</li>
+            <li>Test at shoreline, mid‑depth, and near vegetation</li>
+            <li>Repeat weekly or after storms</li>
+        </ul>
+        <a href="#">LEARN FULL TESTING GUIDE →</a>
+    </div>
+
+    <!-- DIRECT REPORTING -->
+    <div class="card">
+        <h3>Direct Illinois DNR Reporting</h3>
+        <ul>
+            <li><a href="https://www.ifishillinois.org" target="_blank">Illinois DNR Fisheries</a></li>
+            <li><a href="https://www2.illinois.gov/dnr" target="_blank">Illinois Department of Natural Resources</a></li>
+            <li><a href="https://epa.illinois.gov" target="_blank">Illinois EPA Water Reports</a></li>
+        </ul>
+        <p>All reports submitted through BaitLogic are designed to be routed to the correct authority.</p>
+    </div>
+
+    <!-- AUTO ROUTING SUMMARY -->
+    <div class="card">
+        <h3>Automatic Conservation Authority Routing</h3>
+        <ul>
+            <li>Water quality issues → Illinois EPA</li>
+            <li>Fish kills → Illinois DNR Fisheries</li>
+            <li>Pollution or spills → Emergency Environmental Response</li>
+            <li>Invasive species → Illinois Aquatic Nuisance Species Program</li>
+        </ul>
+        <a href="#">SUBMIT WATER ISSUE →</a>
+    </div>
+
+    <!-- CLEANUP EVENTS -->
+    <div class="card">
+        <h3>Community Cleanup Events</h3>
+        <ul>
+            <li>Organize shoreline cleanups</li>
+            <li>Track volunteer hours</li>
+            <li>Submit before/after photos</li>
+            <li>Earn conservation badges</li>
+        </ul>
+        <a href="#">JOIN CLEANUP EVENT →</a>
+    </div>
+
+    <!-- INVASIVE SPECIES DATABASE -->
+    <div class="card">
+        <h3>Invasive Species Database</h3>
+        <ul>
+            <li>Asian carp</li>
+            <li>Zebra mussels</li>
+            <li>Eurasian watermilfoil</li>
+            <li>Rusty crayfish</li>
+            <li>Hydrilla</li>
+        </ul>
+        <a href="#">VIEW FULL DATABASE →</a>
+    </div>
+</div>
+
+<!-- REAL REPORTING FORMS -->
+<div class="section">
+    <h2>Report a Water Issue</h2>
+    <p>Structured form so reports can be routed to the right conservation authority.</p>
+
+    <div class="card">
+        <form>
+            <label for="issue-waterbody">Waterbody name</label>
+            <input id="issue-waterbody" type="text" placeholder="Lake / river / creek name">
+
+            <label for="issue-location">Location (nearest town / access point)</label>
+            <input id="issue-location" type="text" placeholder="Example: Horseshoe Lake, west ramp">
+
+            <label for="issue-type">Issue type</label>
+            <select id="issue-type">
+                <option>Water quality (odor, color, foam, sheen)</option>
+                <option>Fish kill</option>
+                <option>Chemical spill / pollution</option>
+                <option>Trash / debris / illegal dumping</option>
+                <option>Invasive species sighting</option>
+                <option>Habitat damage / erosion</option>
+            </select>
+
+            <label for="issue-description">Description</label>
+            <textarea id="issue-description" rows="4" placeholder="What did you see, smell, or notice?"></textarea>
+
+            <label for="issue-date">Date observed</label>
+            <input id="issue-date" type="date">
+
+            <label for="issue-contact">Contact (optional)</label>
+            <input id="issue-contact" type="text" placeholder="Email or phone (optional)">
+
+            <button type="button">SUBMIT REPORT (STRUCTURE ONLY)</button>
+            <small>This is a front-end structure only. Backend routing and email/API integration come next.</small>
+        </form>
+    </div>
+</div>
+
+<!-- INVASIVE SPECIES DETECTION TOOLS (STRUCTURE) -->
+<div class="section">
+    <h2>Invasive Species Detection Tools</h2>
+    <p>Framework for logging, reviewing, and acting on invasive species sightings.</p>
+
+    <div class="card">
+        <h3>Log an Invasive Sighting</h3>
+        <form>
+            <label for="inv-species">Suspected species</label>
+            <select id="inv-species">
+                <option>Asian carp</option>
+                <option>Zebra mussels</option>
+                <option>Eurasian watermilfoil</option>
+                <option>Rusty crayfish</option>
+                <option>Hydrilla</option>
+                <option>Other / unsure</option>
+            </select>
+
+            <label for="inv-waterbody">Waterbody</label>
+            <input id="inv-waterbody" type="text" placeholder="Lake / river / creek name">
+
+            <label for="inv-location">Location details</label>
+            <input id="inv-location" type="text" placeholder="Shoreline, depth, nearby structure, etc.">
+
+            <label for="inv-date">Date observed</label>
+            <input id="inv-date" type="date">
+
+            <label for="inv-notes">Notes</label>
+            <textarea id="inv-notes" rows="3" placeholder="Behavior, density, spread, anything unusual."></textarea>
+
+            <button type="button">SUBMIT INVASIVE REPORT (STRUCTURE ONLY)</button>
+            <small>Backend logic can route invasive reports directly to Illinois invasive species programs.</small>
+        </form>
+    </div>
+
+    <div class="card">
+        <h3>Recent Invasive Alerts (Example Data)</h3>
+        <ul>
+            <li><strong>Asian carp</strong> — Mississippi River pool near Alton — 3 days ago</li>
+            <li><strong>Zebra mussels</strong> — Dock pilings, Carlyle Lake — 1 week ago</li>
+            <li><strong>Eurasian watermilfoil</strong> — Cove area, small reservoir — 2 weeks ago</li>
+        </ul>
+        <small>These are example entries. Live alerts would be populated from real reports.</small>
+    </div>
+</div>
+
+<!-- FOUNDER NOTE -->
+<div class="section">
+    <h2>Founder Note</h2>
+    <p>BaitLogic exists to help anglers fish smarter, protect our waters, and build a stronger community. We leave every waterway better than we found it.</p>
+
+    <ul>
+        <li>Real-time intel</li>
+        <li>Community-driven accuracy</li>
+        <li>Environmental protection at the core</li>
+        <li>Tools for anglers, guides, and conservationists</li>
+    </ul>
+</div>
+
+</body>
+</html>
